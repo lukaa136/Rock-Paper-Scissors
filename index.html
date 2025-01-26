@@ -59,6 +59,7 @@
             alert("You win! Rock beat scissors");
             humanScore++;
           } else {
+            ammountOfGames--;
             alert("Draw, try again");
           }
           alert(`You: ${humanScore} Computer:${computerScore}`);
@@ -72,7 +73,11 @@
           if (rounds < 5) {
             playGame();
           } else {
-            alert("gameFinished");
+            if (humanScore > 2) {
+              alert(`Congratulations, you win ${humanScore}-${computerScore}`);
+            } else {
+              alert(`Oops, you loose ${humanScore}-${computerScore}`);
+            }
           }
         }
         playFiveTimes(ammountOfGames);
