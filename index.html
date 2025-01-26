@@ -27,14 +27,16 @@
           humanChoice !== "paper" &&
           humanChoice !== "scissors"
         ) {
-          alert("Invalid choice. Please choose Rock, Paper, or Scissors.");
+          alert("Invalid choice. Please choose rock, paper, or scissors.");
           return getHumanChoice();
         }
         return humanChoice;
       }
+
       let humanScore = 0;
       let computerScore = 0;
       let ammountOfGames = 0;
+
       function playGame() {
         function playRound(humanChoice, computerChoice) {
           ammountOfGames++;
@@ -64,15 +66,16 @@
 
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
-
         playRound(humanSelection, computerSelection);
-        function gameLoop() {
-          if (ammountOfGames == 5) {
-            return "game finished";
+
+        function playFiveTimes(rounds) {
+          if (rounds < 5) {
+            playGame();
           } else {
-            playRound(humanSelection, computerSelection);
+            alert("gameFinished");
           }
         }
+        playFiveTimes(ammountOfGames);
       }
     </script>
   </body>
