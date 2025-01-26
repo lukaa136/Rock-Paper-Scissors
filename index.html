@@ -22,12 +22,22 @@
       }
       function getHumanChoice() {
         let humanChoice = prompt("Rock, paper or scissors?").toLowerCase();
+        if (
+          humanChoice !== "rock" &&
+          humanChoice !== "paper" &&
+          humanChoice !== "scissors"
+        ) {
+          alert("Invalid choice. Please choose Rock, Paper, or Scissors.");
+          return getHumanChoice();
+        }
         return humanChoice;
       }
+      let humanScore = 0;
+      let computerScore = 0;
+      let ammountOfGames = 0;
       function playGame() {
-        let humanScore = 0;
-        let computerScore = 0;
         function playRound(humanChoice, computerChoice) {
+          ammountOfGames++;
           if (computerChoice === "Paper" && humanChoice === "rock") {
             alert("You loose! Paper beats rock");
             computerScore++;
@@ -56,6 +66,13 @@
         const computerSelection = getComputerChoice();
 
         playRound(humanSelection, computerSelection);
+        function gameLoop() {
+          if (ammountOfGames == 5) {
+            return "game finished";
+          } else {
+            playRound(humanSelection, computerSelection);
+          }
+        }
       }
     </script>
   </body>
