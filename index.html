@@ -24,15 +24,37 @@
         }
       }
       function getHumanChoice() {
-        let humanChoice = parseInt(prompt("Rock, paper or scissors?"));
+        let humanChoice = prompt("Rock, paper or scissors?").toLowerCase();
+        return humanChoice;
       }
+
       function playRound(humanChoice, computerChoice) {
-        let computerChoice = getComputerChoice();
-        let humanChoice = getHumanChoice();
-        /* tomar ambos valores y compararlos
-        definir quien gana el round
-        incrementar el score en base a eso */
+        if (computerChoice === "Paper" && humanChoice === "rock") {
+          alert("Computer wins!");
+          computerScore++;
+        } else if (computerChoice === "Paper" && humanChoice === "scissors") {
+          alert("You win!");
+          humanScore++;
+        } else if (computerChoice === "Rock" && humanChoice === "scissors") {
+          alert("Computer wins!");
+          computerScore++;
+        } else if (computerChoice === "Rock" && humanChoice === "paper") {
+          alert("You win!");
+          humanScore++;
+        } else if (computerChoice === "Scissors" && humanChoice === "paper") {
+          alert("Computer wins!");
+          computerScore++;
+        } else if (computerChoice === "Scissors" && humanChoice === "rock") {
+          alert("You win!");
+          humanScore++;
+        } else {
+          alert("Draw, try again");
+        }
       }
+      const humanSelection = getHumanChoice();
+      const computerSelection = getComputerChoice();
+
+      playRound(humanSelection, computerSelection);
     </script>
   </body>
 </html>
