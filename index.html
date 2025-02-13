@@ -7,7 +7,7 @@
   </head>
   <body></body>
   <script>
-    /*     
+    /*
 
         function getHumanChoice() {
       let humanChoice = prompt("Rock, paper or scissors?").toLowerCase();
@@ -88,12 +88,9 @@
     } */
 
     /* NEW */
-    function getRandomNumber() {
-      return Math.floor(Math.random() * 3);
-    }
 
     function getComputerChoice() {
-      const randomNumber = getRandomNumber();
+      const randomNumber = Math.floor(Math.random() * 3);
       if (randomNumber === 0) {
         return "Paper";
       } else if (randomNumber === 1) {
@@ -104,20 +101,20 @@
     }
 
     function playRound(humanChoice, computerChoice) {
-      if (computerChoice === "Paper" && humanChoice === "rock") {
-        alert("You loose! Paper beats rock");
-      } else if (computerChoice === "Paper" && humanChoice === "scissors") {
-        alert("You win! Scissors beats paper");
-      } else if (computerChoice === "Rock" && humanChoice === "scissors") {
-        alert("You loose! Rock beats scissors");
-      } else if (computerChoice === "Rock" && humanChoice === "paper") {
-        alert("You win! Paper beats rock");
-      } else if (computerChoice === "Scissors" && humanChoice === "paper") {
-        alert("You loose! Scissors beat paper");
-      } else if (computerChoice === "Scissors" && humanChoice === "rock") {
-        alert("You win! Rock beat scissors");
+      if (
+        (computerChoice === "Paper" && humanChoice === "rock") ||
+        (computerChoice === "Rock" && humanChoice === "scissors") ||
+        (computerChoice === "Scissors" && humanChoice === "paper")
+      ) {
+        alert(`You loose! ${computerChoice} beats ${humanChoice}`);
+      } else if (
+        (computerChoice === "Paper" && humanChoice === "scissors") ||
+        (computerChoice === "Rock" && humanChoice === "paper") ||
+        (computerChoice === "Scissors" && humanChoice === "rock")
+      ) {
+        alert(`You win! ${humanChoice} beats ${computerChoice}`);
       } else {
-        alert("Draw, try again");
+        alert(`Draw!`);
       }
     }
 
