@@ -88,6 +88,26 @@
     } */
 
     /* NEW */
+    let humanScore = 0;
+    let computerScore = 0;
+
+    const paperButton = document.createElement("button");
+    const rockButton = document.createElement("button");
+    const scissorsButton = document.createElement("button");
+    const div = document.createElement("div");
+    const scoreBoard = document.createElement("p");
+
+    paperButton.textContent = "PAPER";
+    rockButton.textContent = "ROCK";
+    scissorsButton.textContent = "SCISSORS";
+    div.textContent = "Let's start!";
+    scoreBoard.textContent = `You ${humanScore} | ${computerScore} Computer`;
+
+    document.body.appendChild(rockButton);
+    document.body.appendChild(paperButton);
+    document.body.appendChild(scissorsButton);
+    document.body.appendChild(div);
+    document.body.appendChild(scoreBoard);
 
     function getComputerChoice() {
       const randomNumber = Math.floor(Math.random() * 3);
@@ -106,29 +126,21 @@
         (computerChoice === "Rock" && humanChoice === "scissors") ||
         (computerChoice === "Scissors" && humanChoice === "paper")
       ) {
-        alert(`You loose! ${computerChoice} beats ${humanChoice}`);
+        div.textContent = `You loose! ${computerChoice} beats ${humanChoice}`;
+        computerScore++;
+        scoreBoard.textContent = `You ${humanScore} | ${computerScore} Computer`;
       } else if (
         (computerChoice === "Paper" && humanChoice === "scissors") ||
         (computerChoice === "Rock" && humanChoice === "paper") ||
         (computerChoice === "Scissors" && humanChoice === "rock")
       ) {
-        alert(`You win! ${humanChoice} beats ${computerChoice}`);
+        div.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
+        humanScore++;
+        scoreBoard.textContent = `You ${humanScore} | ${computerScore} Computer`;
       } else {
-        alert(`Draw!`);
+        div.textContent = `Draw!`;
       }
     }
-
-    const paperButton = document.createElement("button");
-    const rockButton = document.createElement("button");
-    const scissorsButton = document.createElement("button");
-
-    paperButton.textContent = "PAPER";
-    rockButton.textContent = "ROCK";
-    scissorsButton.textContent = "SCISSORS";
-
-    document.body.appendChild(rockButton);
-    document.body.appendChild(paperButton);
-    document.body.appendChild(scissorsButton);
 
     rockButton.addEventListener("click", () => {
       let result = "rock";
